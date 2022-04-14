@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AuthenticationService from './AuthenticationService';
 import TodoDataService from '../api/TodoDataService';
 import moment from 'moment'
@@ -48,11 +48,11 @@ const ListTodosComponent = (props) => {
     useEffect(() => {
         console.log('componentDidMount')
         refreshTodos();
-        console.log(todos)
-            // return function cleanup() {
-            //     console.log('componentWillUnmount')
-            // };
-          });
+         console.log(todos)
+            return function cleanup() {
+                console.log('componentWillUnmount')
+            };
+          }, []);
           
     
         return (

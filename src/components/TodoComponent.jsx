@@ -22,7 +22,7 @@ const TodoComponent = (props) => {
     //             setDescription(response.data.description)
     //             setTargetDate(moment(response.data.targetDate).format('YYYY-MM-DD'))
     //          })
-    // }})
+    // }}, [])
     
     const validate = (values) => {
         let errors = {}
