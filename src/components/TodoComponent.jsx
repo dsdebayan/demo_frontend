@@ -10,19 +10,21 @@ const TodoComponent = (props) => {
     const [description, setDescription] = useState('')
     const [targetDate, setTargetDate] = useState(moment(new Date()).format('YYYY-MM-DD'))
 
-    // useEffect(() => {
+    useEffect(() => {
+        console.log('todocomponents ->' + id)
 
-    //     if(id!==-1) {
+        if(id >= 0) {
+            console.log('todocomponents inside if ->' + id)
            
         
-    //     let username = AuthenticationService.getLoggedInUserName()
+        let username = AuthenticationService.getLoggedInUserName()
         
-    //     TodoDataService.retrieveTodo(username, id)
-    //          .then(response => {
-    //             setDescription(response.data.description)
-    //             setTargetDate(moment(response.data.targetDate).format('YYYY-MM-DD'))
-    //          })
-    // }}, [])
+        TodoDataService.retrieveTodo(username, id)
+             .then(response => {
+                setDescription(response.data.description)
+                setTargetDate(moment(response.data.targetDate).format('YYYY-MM-DD'))
+             })
+    }}, [id, description, targetDate])
     
     const validate = (values) => {
         let errors = {}
