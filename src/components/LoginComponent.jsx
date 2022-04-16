@@ -10,17 +10,27 @@ const LoginComponent = (props) => {
 
     function loginClicked() {
         //debayan,dummy
-        if(username==='debayan' && password==='dummy'){
+        // if(username==='debayan' && password==='dummy'){
+        //     AuthenticationService.registerSuccessfulLogin(username,password)
+        //     //this.props.history.push(`/welcome/${this.state.username}`)
+        //     props.navigate(`/welcome/${username}`)
+        //     setShowSuccessMessage(true)
+        //     setHasLoginFailed(false)
+        // }
+        // else {
+        //     setShowSuccessMessage(false)
+        //     setHasLoginFailed(true)
+        // }
+
+        AuthenticationService
+        .executeBasicAuthenticationService(username, password)
+        .then(() => {
             AuthenticationService.registerSuccessfulLogin(username,password)
-            //this.props.history.push(`/welcome/${this.state.username}`)
             props.navigate(`/welcome/${username}`)
-            setShowSuccessMessage(true)
-            setHasLoginFailed(false)
-        }
-        else {
+        }).catch( () =>{
             setShowSuccessMessage(false)
             setHasLoginFailed(true)
-        }
+        })
     }
 
 
