@@ -1,3 +1,11 @@
+ npx crate-react-app demo
+ npm add react-router-dom
+npm add axios
+ npm add formik
+ npm add moment
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
